@@ -1,0 +1,55 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /index.html [L]
+# Security Headers
+<IfModule mod_headers.c>
+	Header set Age "216000
+	Header set X-XSS-Protection "1; mode=block"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set X-Content-Type-Options "nosniff"
+	#Header set X-Permitted-Cross-Domain-Policies "none"
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains;"
+	Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data:; connect-src 'self'; font-src 'self' data:;  frame-src 'self'; img-src * 'self' data:; media-src 'self'; object-src 'self'; script-src 'self' 'unsafe-inline' 'report-sample'; style-src 'self' 'unsafe-eval' 'unsafe-inline';"
+	Header set Referrer-Policy "same-origin"
+	Header set Permissions-Policy "geolocation=(self)"
+ 	Header always unset X-Powered-By
+ 	Header always unset Server
+  Header unset Server
+ 	Header unset X-Powered-By
+ 	Header append Vary "Accept-Encoding, User-Agent, Referer"	
+</IfModule>
+
+
+
+
+# LO DE ABAJO ES EL CONTENIDO ORIGINAL
+
+
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^index\.html$ - [L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-l
+# RewriteRule . /index.html [L]
+# # Security Headers
+# <IfModule mod_headers.c>
+# 	Header set Age "216000
+# 	Header set X-XSS-Protection "1; mode=block"
+# 	Header set X-Frame-Options "SAMEORIGIN"
+# 	Header set X-Content-Type-Options "nosniff"
+# 	#Header set X-Permitted-Cross-Domain-Policies "none"
+# 	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains;"
+# 	Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data:; connect-src 'self' https://*.tawk.to wss://*.tawk.to smartpymestoragedev.blob.core.windows.net api-backend-smartpyme-dev.azurewebsites.net https://www.google-analytics.com https://stats.g.doubleclick.net; font-src 'self' https://embed.tawk.to cdnjs.cloudflare.com fonts.gstatic.com data:;  frame-src 'self' youtube.com www.youtube.com www.google.com/recaptcha/; img-src * 'self' https://embed.tawk.to https://smartpymestoragedev.blob.core.windows.net/ https://www.gstatic.com  data:; media-src 'self'; object-src 'self' https://smartpymestoragedev.blob.core.windows.net/; script-src 'self' 'unsafe-inline' 'report-sample' www.google.com/recaptcha/ https://cdn.jsdelivr.net https://www.google-analytics.com https://www.gstatic.com/recaptcha/ https://www.youtube.com https://*.tawk.to; style-src 'self' 'unsafe-eval' https://embed.tawk.to cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline';"
+# 	Header set Referrer-Policy "same-origin"
+# 	Header set Permissions-Policy "geolocation=(self)"
+#  	Header always unset X-Powered-By
+#  	Header always unset Server
+#   Header unset Server
+#  	Header unset X-Powered-By
+#  	Header append Vary "Accept-Encoding, User-Agent, Referer"	
+# </IfModule>
