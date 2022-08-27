@@ -26,7 +26,7 @@
       "command": "npx babel-node ./scripts/build-i18n.ts --extensions '.ts'"
     },
     "build": {
-      "command": "bnr react-scripts build",
+      "command": "bnr build-config && react-scripts build",
       "env": {
         "CLOUD_ENV": "production",
         "NODE_ENV": "production"
